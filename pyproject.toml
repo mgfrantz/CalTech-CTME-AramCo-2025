@@ -1,0 +1,18 @@
+[project]
+name = "ctme"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "ipywidgets>=8.1.7",
+    "litellm>=1.70.0",
+    "matplotlib>=3.10.3",
+]
+authors = [
+    { name = "Michael Frantz", email = "michaelgfrantz@gmail.com" },
+]
+
+[tool.setuptools.packages.find]
+where = ["ctme"]
