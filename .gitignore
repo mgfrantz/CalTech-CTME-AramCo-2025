@@ -20,3 +20,5 @@ var/
 .installed.cfg
 *.egg
 .env
+*.json
+db_schemas

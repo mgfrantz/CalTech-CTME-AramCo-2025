@@ -5,18 +5,26 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi[mcp]>=0.115.12",
+    "argilla>=2.8.0",
+    "datasets>=3.6.0",
     "gradio[mcp]>=5.29.1",
     "ipykernel>=6.29.5",
     "ipywidgets>=8.1.7",
     "litellm>=1.70.0",
     "matplotlib>=3.10.3",
+    "numpydoc>=1.8.0",
+    "pandas>=2.2.3",
     "python-box>=7.3.2",
     "python-dotenv>=1.1.0",
+    "seaborn>=0.13.2",
+    "tabulate>=0.9.0",
+    "tenacity>=9.1.2",
+    "thefuzz>=0.22.1",
+    "yfinance>=0.2.61",
 ]
 authors = [
     { name = "Michael Frantz", email = "michaelgfrantz@gmail.com" },
 ]
 
 [tool.setuptools.packages.find]
-where = ["ctme"]
+include = ["ctme"]
