@@ -6,11 +6,16 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "argilla>=2.8.0",
+    "attachments>=0.3.0",
     "datasets>=3.6.0",
     "faker>=37.3.0",
     "gradio[mcp]>=5.29.1",
     "ipykernel>=6.29.5",
     "ipywidgets>=8.1.7",
+    "langchain-community>=0.3.25",
+    "langchain-openai>=0.3.22",
+    "langchain[gemini]>=0.3.25",
+    "langgraph>=0.4.8",
     "litellm>=1.70.0",
     "matplotlib>=3.10.3",
     "names>=0.3.0",
