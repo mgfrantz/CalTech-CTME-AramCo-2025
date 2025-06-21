@@ -1,0 +1,78 @@
+# axolotl_qwen3_0.6b.yaml
+# Full fine-tune configuration for Qwen3-0.6B on SQL generation dataset
+
+# Base model configuration
+base_model: Qwen/Qwen3-0.6B
+model_type: QwenForCausalLM
+tokenizer_type: QwenTokenizer
+
+# Dataset configuration
+datasets:
+  - path: ./output/chatml_training_data.jsonl
+    type: chat_template
+    chat_template: qwen3
+    field_messages: conversations
+    message_field_role: role
+    message_field_content: content
+
+# Training configuration (full fine-tune, not QLora since 0.6B is manageable)
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+# Sequence and batch configuration
+sequence_len: 2048
+sample_packing: true
+pad_to_sequence_len: true
+
+# Batch size configuration (can afford larger batches with 0.6B model)
+micro_batch_size: 4
+gradient_accumulation_steps: 4
+eval_batch_size: 4
+
+# Learning configuration
+num_epochs: 3
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0001
+
+# Attention and efficiency
+flash_attention: true
+bf16: auto
+fp16: false
+tf32: false
+
+# Training behavior
+train_on_inputs: false
+group_by_length: false
+bucket_strategy: linear
+max_steps: 1000
+
+# Validation
+val_set_size: 0.1
+eval_steps: 50
+save_steps: 100
+logging_steps: 1
+
+# Output configuration
+output_dir: ./qwen3-0.6b-sql-finetune
+
+# Model saving
+save_strategy: steps
+save_total_limit: 3
+
+# Weights & Biases logging (optional)
+wandb_project: qwen3-sql-generation
+wandb_entity: # Add your wandb entity here
+wandb_watch: false
+
+# Special tokens
+special_tokens:
+  pad_token: "<|endoftext|>"
+
+# Training roles (only train on assistant responses)
+roles_to_train:
+  - assistant
+
+# Early stopping
+early_stopping_patience: 10
